@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  sample-airflow:
+    image: sample-airflow
+
+    # Persist data from local ./airflow directory to opt/airflow
+    volumes:
+      - ./airflow:/opt/airflow
+      # Mount local DAGs directory into container
+      - ./dags:/opt/airflow/dags
+
+    # Map port 8080 pm local machine to container port
+    ports:
+      - "8080:8080"
+
+    # Initiates all the airflow components
+    command: airflow standalone

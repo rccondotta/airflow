@@ -9,6 +9,8 @@ services:
       - ./airflow:/opt/airflow
       # Mount local DAGs directory into container
       - ./dags:/opt/airflow/dags
+      # Mount plugins directory into container
+      - ./plugins:/opt/airflow/plugins
 
     # Map port 8080 pm local machine to container port
     ports:
@@ -16,3 +18,7 @@ services:
 
     # Initiates all the airflow components
     command: airflow standalone
+
+  sample-smtp:
+    image: bytemark/smtp
+    restart: always

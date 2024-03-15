@@ -25,3 +25,7 @@ These steps will build your custom Docker image and start a container using dock
 
 You can now manually trigger your DAG.
 
+## Adding Email Service
+
+1. Update `airflow.cfg`
+2. Alter `smtp_host` to be name of email service: `sample-smtp`
